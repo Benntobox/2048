@@ -14,4 +14,8 @@ class Game {
     init() {
         grid = Grid()
     }
+    
+    func move(_ direction: Direction) {
+        grid.moveBlocks(in: direction)
+    }
 }
