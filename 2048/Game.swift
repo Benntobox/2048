@@ -11,11 +11,20 @@ import Foundation
 class Game {
     var grid: Grid
     
-    init() {
-        grid = Grid()
+    init(size: Int) {
+        grid = Grid(size)
     }
     
     func move(_ direction: Direction) {
-        grid.moveBlocks(in: direction)
+        //grid.moveBlocks(in: direction)
+    }
+    
+    func newBlock() {
+        var randomPosition = grid.randomPosition()
+        while grid[randomPosition] != nil {
+            randomPosition = grid.randomPosition()
+        }
+        grid[randomPosition] = GridSquare(value: 2, position: randomPosition)
+        
     }
 }
